@@ -1,0 +1,57 @@
+1. Basic information
+Team number (e.g., 01) : 29
+#1 Student ID : 11362208
+#1 Student Name : Shweta Kumari
+#2 Student ID : 68923829
+#2 Student Name : Ishita Acharya
+OS (bit) : 64 bit
+gcc version :4.8.5
+
+
+2. Catalog information about Index
+- Show your catalog information about an index (tables, columns). 
+
+-For Indices , another table in the catalog table with name 'indices' has been created to maintain the information about it.
+
+-Indices Table contain Filename, TableName, AttributeName
+
+3. Block Nested Loop Join (If you have implemented this feature)
+- Describe how your block nested loop join works (especially, how you manage the given buffers.)
+
+-We created buffer of size(numPages*size). Iterate through the left relation and put that into buffer at the same time adding it to the hash table. 
+-Whenever getNextTuple is called ,right relation is iterated to find the match in the hash table for the given condition. The result tuple is returned.
+-Once we reach the end of the right relation, it get reset and the next tuples get loaded into the buffer, hast table is also recreated. 
+-This loop will continue till we reach the end of left relation.
+
+4. Index Nested Loop Join (If you have implemented this feature)
+- Describe how your grace hash join works.
+
+-Left relation gets iterated and performs index search on the right relation.
+-Whenever getnextTuple is called left relation is iterated ,index search is performed on right relation for the given condition.
+-The resulted tuple is returned.
+-This loop will continue till we reach the end of relation.
+
+
+5. Grace Hash Join (If you have implemented this feature)
+- Describe how your grace hash join works (especially, in-memory structure).
+
+
+6. Aggregation
+- Describe how your aggregation (basic, group-based hash) works.
+
+Whenever getNextTuple is called on the Aggregate class
+Input relation gets iterated and count, sum, avg, min and max also gets calculated.
+
+We return the value and set flag for the end of file.
+
+7. Implementation Detail
+- Have you added your own source file (.cc or .h)?
+
+- Have you implemented any optional features? Then, describe them here.
+
+- Other implementation details:
+
+
+6. Other (optional)
+- Freely use this section to tell us about things that are related to the project 4, but not related to the other sections (optional)
+
